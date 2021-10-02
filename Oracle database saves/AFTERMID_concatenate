@@ -13,3 +13,8 @@ select 'My name is ', name ,'and currently Iam studying in ',semester from stude
 select 'My name is ' || name from students;
 
 select 'My name is '||name||' and currently Iam studiying in '||semester from students;
+
+/*using different literals*/
+select 1 , 'kapil' ,Sysdate , name from students;     /*function literal*/
+select 1 , 'kapil' ,Sysdate ,100*200, name from students;     /*expression literal*/
+select 1 , 'kapil' ,name from students;     /*table colomn literal*/
