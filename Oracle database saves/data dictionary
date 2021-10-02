@@ -1,0 +1,18 @@
+create table sample(roll_number number primary key,name varchar2(25) not null,admission_number number);
+alter table sample modify(admission_number unique);
+insert into sample values(3,'Himanshu Pal',19011269);
+select * from sample;
+desc sample;
+
+/*when we use desc we see that our rool number is not null but along with that admission number is also not null 
+so how do we know which key is primary key and which key is not null
+*/
+
+/*there are two places from where we can see the constraints
+whatever constraints are assigned to colomns they are stored in data dictionary tables
+*/
+/*tables wich are not visble in tab but still you can select them are known as data dictionary table*/
+select * from user_constraints;
+
+desc user_constraints;
+select constraint_name,constraint_type,search_condition from user_constraints where table_name='SAMPLE';
