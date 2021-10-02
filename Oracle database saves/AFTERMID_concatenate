@@ -1,0 +1,15 @@
+create table students(roll_number number,name varchar2(20),semester number);
+
+desc students;
+
+insert into students values(123,'Aman Nawal',5);
+
+/*My name is a different colomn  while 'and currently Iam studying in ' is another colomn*/
+
+select 'My name is ', name ,'and currently Iam studying in ',semester from students;  /*our work is done here but its not in contextual manner*/
+
+/*using concatenation we can combine these two colomn as one*/
+
+select 'My name is ' || name from students;
+
+select 'My name is '||name||' and currently Iam studiying in '||semester from students;
