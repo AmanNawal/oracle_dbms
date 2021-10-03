@@ -1,0 +1,13 @@
+/*date format
+DD-MON-YY
+DD-MON-YYYY
+DD-MON-RR
+*/
+/*months in oracle are in the format of first 3litters of tyhe months JAN,DEC and cannot be changed*/
+
+select sysdate from dual;
+
+create table sample(rollnumber number,dob date,doj date);   /*dob and date of joining has a data type date*/
+insert into sample values(1,'1-feb-21','4-dec-1977'); /*for this particular query the doj has athe value of 77 instead of 1977 because the date has a default patter in oracle i.e. DD-MON-YY*/
+insert into sample values(1,'1-feb-21',sysdate);
+select * from sample;
