@@ -10,4 +10,20 @@ select sysdate from dual;
 create table sample(rollnumber number,dob date,doj date);   /*dob and date of joining has a data type date*/
 insert into sample values(1,'1-feb-21','4-dec-1977'); /*for this particular query the doj has athe value of 77 instead of 1977 because the date has a default patter in oracle i.e. DD-MON-YY*/
 insert into sample values(1,'1-feb-21',sysdate);
+
+/*to see full year
+we use RR format
+if a year <50 is used then the year would be considered from current century
+else from 50<year previous century
+*/
+
+/*to_char(date variable,date format) is used to display the year the YYYY format*/
+
+select dob , to_char(dob,'DD-MON-YYYY'), doj ,to_char(doj,'DD-MON-YYYY') from sample;
+
+/*can be used to change the date format for current login*/
+alter session set nls_date_format='dd mon yyyy'
+
+select * from sample;
+
 select * from sample;
