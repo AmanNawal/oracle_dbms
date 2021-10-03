@@ -15,4 +15,4 @@ whatever constraints are assigned to colomns they are stored in data dictionary 
 select * from user_constraints;
 
 desc user_constraints;
-select constraint_name,constraint_type,search_condition from user_constraints where table_name='SAMPLE';
+select constraint_name,constraint_type,search_condition from user_constraints where table_name='SAMPLE';  /*can be used to get constraints from the table*/
