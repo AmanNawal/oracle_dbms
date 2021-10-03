@@ -16,3 +16,17 @@ select * from user_constraints;
 
 desc user_constraints;
 select constraint_name,constraint_type,search_condition from user_constraints where table_name='SAMPLE';  /*can be used to get constraints from the table*/
+
+
+/*what if we want a key to not be a not null or unique or primary key when these properties has already bee assigned to them*/
+
+alter table sample drop constraint SYS_C0066202466;  /*removing the unique value from admission number key*/
+alter table sample drop constraint SYS_C0066202464;  /*removing the primary key from admission number key*/
+
+
+/*what if we want to add our own constaint name rather than the default one*/
+/*we can use the pattern-----    number/varchar2  constarint constraint_name unique/notnull/primary key       -----*/
+create table sample(roll_number number constraint roll_primary primary key,name varchar2(25) constraint name_unique not null,admission_number number constraint unique_add_num unique);
+
+select constraint_name,constraint_type,search_condition from user_constraints where table_name='SAMPLE';
+alter table sample drop constraint unique_add_num;
