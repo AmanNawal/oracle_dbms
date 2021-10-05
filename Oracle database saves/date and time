@@ -24,6 +24,38 @@ select dob , to_char(dob,'DD-MON-YYYY'), doj ,to_char(doj,'DD-MON-YYYY') from sa
 /*can be used to change the date format for current login*/
 alter session set nls_date_format='dd mon yyyy'
 
-select * from sample;
+alter session set nls_date_format='day dd month yyyy'  /*changing the format adding day as well as month*/
+
+create table sample(rollnumber number,dob date,doj date);
+insert into sample values(1,'1-feb-2021','4-dec-1977');
+
+select dob from sample;
+
+select to_char(dob,'day dd month year') from sample;  /*wuil spell year */
+
+/*date format in oracle*/
+
+/*
+hh-hours
+mi-minutes
+ss=seconds
+*/
+
+select to_char(dob,'dd mm yy hh mi ss') from sample;  /*would use the default time 12:00:00 beacuse nop time has been assigned to sample except of the sysdate in case of
+sysdate the actual time would be stored*/
+
+
+create table sample1(rollnumber number,dob date,doj date);
+insert into sample1 values(1,sysdate,sysdate);
+
+select doj,to_char(doj,'hh mi ss dd mon yy') from sample1;
+
+
+/*inserting date*/
+
+insert into sample1 values(1112,sysdate,to_date('1-mar-88 11:11:11','DD-MON-YY HH:MI:SS'));   /*to_date function is used to specify the format in which the time would be inserted*/
+
 
 select * from sample;
+
+
