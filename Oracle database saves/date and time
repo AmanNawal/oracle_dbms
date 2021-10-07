@@ -55,6 +55,23 @@ select doj,to_char(doj,'hh mi ss dd mon yy') from sample1;
 
 insert into sample1 values(1112,sysdate,to_date('1-mar-88 11:11:11','DD-MON-YY HH:MI:SS'));   /*to_date function is used to specify the format in which the time would be inserted*/
 
+select ((sysdate-doj)/365),dob from sample;          /*would give us year difference*/
+select trunc((sysdate-doj)/365),dob from sample;     /*would give us exact year number*/
+
+/*if we want to add a date 10 year back*/
+insert into sample values(2,(sysdate-3650),sysdate);
+
+
+select add_months(doj,5) from sample;  /*would add 5 monts to doj*/
+
+select current_timestamp from dual;   /*would show us time along with date*/
+
+select last_day(sysdate) from dual; /*would show us last date of our current month by the help of sysdate*/
+
+select next_day(sysdate,'Sunday') from dual;  /*would give us when a particular day is going to occur*/
+
+select * from sample;
+
 
 select * from sample;
 
