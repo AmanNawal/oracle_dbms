@@ -1,0 +1,17 @@
+/*consider we have to select names which start from 'a' then we use LIKE*/
+
+select  * from sample where name like 'a%';  /* %  means 0 or more occurences a before % means the first litter should be a*/
+select * from sample where name like '%l';  /* here letter 'l' is to be found int he last so % sign cmes first*/
+select * from sample where name like 'a%l';  /*checks the names with first letter 'a' and last letter 'l'*/
+select * from sample where name like '%n%';  /*would chec the name who consists of character 'c' in between*/
+
+/*only for second alphabet*/
+
+select * from sample where name like '_a%';  /*_ is added to skip the first character a check the second character is 'a' or not*/
+/*in case of third place we can use '__a%'
+  fourth place we can use '___a%'
+and it goes on
+*/
+select * from sample where name like '%w__';  /*check the last third character is 'w'*/
+
+select * from sample where name like '%l' and upper(name) != ('AMAN NAWAL');
