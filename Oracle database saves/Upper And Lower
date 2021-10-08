@@ -1,0 +1,22 @@
+create table sample(roll_number number,name varchar2(25),city varchar2(25),balance number,primary key(roll_number));
+alter table sample modify(name not null,city not null);
+
+
+insert into sample values(5,'pooja','dehradun',2200);
+
+
+/*city name such as Dehradun or DEHradun would not match with the word dehraadun so it would not work*/
+
+select * from sample where city='dehradun';             /*to solve this problem we use lower and upper functions*/
+
+
+
+select upper(city) from sample;
+
+select * from sample where upper(city)='DEHRADUN';  /*this would give us the desired result*/
+
+/*similar to upper we can also use lower*/
+
+select initcap(city)from sample; /*init function changes the first character to uppercase dehradun==Dehradun*/
+
+select * from sample;
