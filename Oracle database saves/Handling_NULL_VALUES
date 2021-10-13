@@ -1,0 +1,19 @@
+create table sample(Name varchar2(20) not null, roll_number number unique,city varchar2(20) not null);
+insert into sample values('nuller',null,'Dehradun');
+alter table sample drop constraint SYS_C0066934174;
+select * from  user_constraints;
+
+
+select * from sample where roll_number=null;  /*is not able to detect null data*/
+
+select * from sample where roll_number is null; /*works fine*/
+
+
+/*if we want a complete colomn empty*/
+
+update sample set roll_number=null;
+
+
+select nvl(roll_number,0) from sample;  /*nvl displays the value of null as 0*/
+
+select * from sample;
