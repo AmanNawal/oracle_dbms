@@ -2,8 +2,35 @@ create table student(name varchar2(25),roll number,sem number);
   
   
   /*a view can be used as a shortcut query in case if the query is too lengthy*/
+  /*  There are two types of views
+        1. simple view
+        2. complex view
+  
+  */
+  
+  
+  /* Simple view Example */
   
 create view sampleview as select name,roll,sem from student;
 
 
 select * from sampleview;  /* would print name,roll,sem*/
+
+
+/* colomn alias - is temporary name given to a colomn */
+
+select sem+100 from student;   /* Here 'sem+100' name of the colomn is a colomn alias */
+
+select sem+100 Newbalance from student;  /*now the name of the colomn would change from sem+100 to newbalance*/
+
+select sem+100 "The New Balance" from student;  /*would change the colomn to the new balance*/
+
+ 
+ /* ----complex view---- */
+ 
+/* A complex view can be create using the use of colomn alias only */
+
+create view sampleview as select name,roll,sem+100 newsem from  student;      /* for colomn sem+100 we need to add the colomn alias or else the query won't work */
+
+
+desc user_views;    /*user_views is a data dictionary which defines our views*/
