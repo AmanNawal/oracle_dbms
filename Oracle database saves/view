@@ -1,0 +1,9 @@
+create table student(name varchar2(25),roll number,sem number);
+  
+  
+  /*a view can be used as a shortcut query in case if the query is too lengthy*/
+  
+create view sampleview as select name,roll,sem from student;
+
+
+select * from sampleview;  /* would print name,roll,sem*/
