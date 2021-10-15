@@ -34,3 +34,6 @@ create view sampleview as select name,roll,sem+100 newsem from  student;      /*
 
 
 desc user_views;    /*user_views is a data dictionary which defines our views*/
+
+select view_name,text from user_views;
+
