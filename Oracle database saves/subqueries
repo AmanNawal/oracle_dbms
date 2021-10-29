@@ -1,0 +1,4 @@
+/*display details from those projects in which employees of marketing department are working*/
+
+
+select * from projects where pmanager in(select empcode from emp where dept in(select dcode from department where dname='Marketing'));
