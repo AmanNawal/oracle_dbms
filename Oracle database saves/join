@@ -1,0 +1,47 @@
+create table department(Dcode number primary key,Dname varchar2(25) not null, city varchar2(25) not null);
+
+insert into department values(70,'IT','Delhi');
+
+create table emp(empcode number primary key, name varchar2(25) not null, city varchar2(25) not null,manager varchar2(25) not null,dept varchar2(25) not null);
+
+alter table emp drop constraint SYS_C0068199445;
+
+desc emp;
+select * from user_constraints;
+
+
+insert into emp values(5,'akhil','goa',1,30);
+
+
+
+/*
+
+A cartesian is a cross product of two tables
+
+*/
+
+
+/*table one*/
+
+create table one(name varchar2(25),city varchar2(25));
+insert into one values('ghi','hrd');
+
+
+/*table two*/
+
+
+create table two(name varchar2(25),hobby varchar2(25));
+insert into two values('def','tracking');
+
+
+
+select * from one cross join two;  /*ANSI synatx*/
+
+select * from one,two;   /*oracle syntax*/
+
+
+select * from emp;
+
+
+
+
