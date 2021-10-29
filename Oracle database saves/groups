@@ -1,0 +1,40 @@
+create table course(coursecode number primary key,coursename varchar2(25) not null,coursefees varchar2(25),coursesemester number not null,dept number not null);
+alter table course modify(dept varchar2(25));
+insert into course values(110,'CCNA',15000,3,'ENGG');
+
+
+
+select sum(coursefees) from course where dept='MCA';  /*has a drawback that you
+have to know the names of colomns + you have to write different queries for different departments */
+
+
+/*we could create different groups on th basis of department*/
+
+select dept,sum(coursefees) from course group by dept;  
+
+/*
+after select in a group we can use the following two things
+-function()
+-colomn on the bsis of which the grouping is done
+
+*/
+
+
+select dept,sum(coursefees) from course group by dept having sum(coursefees) > 100000;    /*having is used check the 
+values of each group is > than 100000 or NOT*/
+
+
+select dept,sum(coursefees) from course where coursefees>25000 group by dept;  /*where is useed to stop all the records from entering 
+a group  whose coursefees is less than 80000*/ 
+
+
+/*having is used at grouyp level and where is used at group level*/
+
+
+
+select dept,sum(coursefees) from course where coursefees>25000 group by dept having sum(coursefees)>50000; /*will restrict the records in the group as well as 
+will also check weather the sum of the coursefees in the group is also >50000*/
+
+select * from course;
+
+desc course;
