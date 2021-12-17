@@ -46,5 +46,7 @@ select * from emp;
 select emp_id,emp_name,emp_dept,dept_name,dept_leader from employee,dept where emp_dept=dept_num order by emp_id ASC;  /*are used to obine the data of two tables*/
 select * from employee natural join leaders;  /*removes the duplicate colomns in the combined tables*/
 
-
+select * from emp,department where dept=dcode(+);   /*when empty rows are present in the dept colomn page*/
+select * from emp,department where dept(+)=dcode;    /*when empty in dcode colomn table*/
+select * from emp full outer join department on dept=dcode; /*would print the empty values of both the tables*/
 
