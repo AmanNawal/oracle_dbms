@@ -43,5 +43,7 @@ select * from one,two;   /*oracle syntax*/
 select * from emp;
 
 
+select emp_id,emp_name,emp_dept,dept_name,dept_leader from employee,dept where emp_dept=dept_num order by emp_id ASC;
+
 
 
